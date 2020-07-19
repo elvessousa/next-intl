@@ -64,7 +64,7 @@ export function getAllPostIds() {
 }
 
 export async function getPostData(id) {
-  const fullPath = path.join(postsDirectory, `S{id}.md`);
+  const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf-8");
   const frontMatter = matter(fileContents);
 

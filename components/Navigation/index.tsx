@@ -17,7 +17,7 @@ const Navigation: React.FC<Props> = ({ className }) => {
           </Link>
         </li>
         <li>
-          <Link href={`/articles/`}>
+          <Link href={`/articles`}>
             <a>articles</a>
           </Link>
         </li>
