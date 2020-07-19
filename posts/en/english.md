@@ -2,7 +2,7 @@
 lang: en
 title: "Article in English"
 slug: article
-date: 2020-07-12
+date: "2020-07-12"
 category: post
 ---
 
