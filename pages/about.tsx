@@ -9,7 +9,7 @@ const About: NextPage = () => {
         <div className="page-text">
           <p>
             Site feito para mostrar a criação de um site bilíngue utilizando o
-            Gatsby JS. O tutorial está em um artigo do meu blog. Fique a vontade
+            Next.js. O tutorial está em um artigo do meu blog. Fique a vontade
             para ver o código-fonte, fazer um fork, ou até usá-lo em seus
             projetos.
           </p>
