@@ -173,9 +173,14 @@ a {
   text-align: center;
 }
 
-.pagination a {
+.pagination a,
+.pagination button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
   display: inline-block;
   padding: 0.5em;
+  font-size: 1em;
 }
 
 /* Footer */
