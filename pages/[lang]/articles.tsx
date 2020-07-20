@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import { getSortedPostData } from "../../lib/posts";
 
@@ -15,14 +16,20 @@ interface Props {
 }
 
 const Post: NextPage<Props> = ({ locale, allPostsData }) => {
-  console.log(locale);
   const postsData = allPostsData.filter((post) => post.lang === locale);
+  const postsPerPage = 10;
+  const numPages = Math.ceil(postsData.length / postsPerPage);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pagedPosts = postsData.slice(
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
+  );
 
   return (
     <Layout className="posts" title="Post">
       <section className="page-content">
         <h1>Articles</h1>
-        {postsData.map((post) => (
+        {pagedPosts.map((post) => (
           <article key={post.id} className="post">
             <Link href={`post/${post.id}`}>
               <a>
@@ -33,6 +40,19 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
             {/*<p>{post.excerpt}</p>*/}
           </article>
         ))}
+
+        {numPages > 1 && (
+          <div className="pagination">
+            {Array.from({ length: numPages }, (_, i) => (
+              <button
+                key={`pagination-number${i + 1}`}
+                onClick={() => setCurrentPage(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+        )}
       </section>
     </Layout>
   );
