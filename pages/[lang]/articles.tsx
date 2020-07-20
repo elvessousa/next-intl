@@ -17,6 +17,8 @@ interface Props {
 
 const Post: NextPage<Props> = ({ locale, allPostsData }) => {
   const postsData = allPostsData.filter((post) => post.lang === locale);
+
+  // Pagination
   const postsPerPage = 10;
   const numPages = Math.ceil(postsData.length / postsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,6 +26,13 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
     (currentPage - 1) * postsPerPage,
     currentPage * postsPerPage
   );
+
+  // Date localization options
+  const dateOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
 
   return (
     <Layout className="posts" title="Post">
@@ -36,7 +45,9 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
                 <h3>{post.title}</h3>
               </a>
             </Link>
-            <time>{post.date}</time>
+            <time>
+              {new Date(post.date).toLocaleDateString(locale, dateOptions)}
+            </time>
             {/*<p>{post.excerpt}</p>*/}
           </article>
         ))}
