@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { useRouter } from "next/router";
+
 import Navigation from "../Navigation";
 import Logo from "../Logo";
-import Link from "next/link";
+import { LanguageContext, locales } from "../../intl/LanguageProvider";
 
 interface Props {
   className?: string;
@@ -9,6 +12,15 @@ interface Props {
 
 const Header: React.FC<Props> = ({ className, children }) => {
   const headerClass = className || "header";
+  const [locale, setLocale] = useContext(LanguageContext);
+  const router = useRouter();
+
+  function handleLocaleChange(language: string) {
+    const regex = new RegExp(`^/(${locales.join("|")})`);
+    setLocale(language);
+
+    router.push(router.pathname, router.asPath.replace(regex, `/${language}`));
+  }
 
   return (
     <header className={headerClass}>
@@ -16,12 +28,8 @@ const Header: React.FC<Props> = ({ className, children }) => {
       <Navigation />
       {children}
       <div className="lang">
-        <Link href="/">
-          <a>PT</a>
-        </Link>
-        <Link href="/en">
-          <a>EN</a>
-        </Link>
+        <button onClick={() => handleLocaleChange("en")}>EN</button>
+        <button onClick={() => handleLocaleChange("pt")}>PT</button>
       </div>
     </header>
   );
