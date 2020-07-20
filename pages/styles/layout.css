@@ -78,15 +78,21 @@ a {
   padding: 0.5em;
 }
 
-.lang a {
+.lang a,
+.lang button {
+  border: 0;
+  background: transparent;
   color: hsla(200, 0%, 0%, 0.7);
+  cursor: pointer;
   display: inline-block;
+  font-weight: bold;
   font-size: 0.8em;
   padding: 0.5em;
   transition: all 0.2s ease-in-out;
 }
 
-.lang a:hover {
+.lang a:hover,
+.lang button:hover {
   color: #000;
 }
 
