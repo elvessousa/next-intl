@@ -1,11 +1,14 @@
 import React from "react";
 import Link from "next/link";
 
+import useTranslation from "../../intl/useTranslation";
+
 interface Props {
   className?: string;
 }
 
 const Navigation: React.FC<Props> = ({ className }) => {
+  const { t, locale } = useTranslation();
   const navClass = className || "navigation";
 
   return (
@@ -13,17 +16,17 @@ const Navigation: React.FC<Props> = ({ className }) => {
       <ul>
         <li>
           <Link href={`/`}>
-            <a>home</a>
+            <a>{t("home")}</a>
           </Link>
         </li>
         <li>
-          <Link href={`/articles`}>
-            <a>articles</a>
+          <Link href={`${locale}/articles`}>
+            <a>{t("articles")}</a>
           </Link>
         </li>
         <li>
           <Link href={`/about`}>
-            <a>about</a>
+            <a>{t("about")}</a>
           </Link>
         </li>
       </ul>

@@ -1,18 +1,30 @@
 import { NextPage } from "next";
+
 import Layout from "../components/Layout";
+import useTranslation from "../intl/useTranslation";
 
 const About: NextPage = () => {
+  const { t, locale } = useTranslation();
+
   return (
     <Layout className="about" title="About">
       <section className="page-content">
-        <h1>About</h1>
+        <h1>{t("about")}</h1>
         <div className="page-text">
-          <p>
-            Site feito para mostrar a criação de um site bilíngue utilizando o
-            Next.js. O tutorial está em um artigo do meu blog. Fique a vontade
-            para ver o código-fonte, fazer um fork, ou até usá-lo em seus
-            projetos.
-          </p>
+          {locale === "pt" ? (
+            <p>
+              Site feito para mostrar a criação de um site bilíngue utilizando o
+              Next.js. O tutorial está em um artigo do meu blog. Fique a vontade
+              para ver o código-fonte, fazer um fork, ou até usá-lo em seus
+              projetos.
+            </p>
+          ) : (
+            <p>
+              Site made to showcase the creation of a bilingual website using
+              Next.js. The tutorial is in an article on my blog. Feel free to
+              view the source code, fork it, or even use it in your projects.
+            </p>
+          )}
 
           <div className="links">
             <h2>Links</h2>
