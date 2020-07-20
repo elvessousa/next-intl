@@ -17,8 +17,8 @@ function getAllPostFileNames(directoryPath, filesList = []) {
       filesList.push(path.join(path.basename(directoryPath), "/", file));
     }
   });
-  const filteredList = filesList.filter((file) => file.includes(".md"));
 
+  const filteredList = filesList.filter((file) => file.includes(".md"));
   return filteredList;
 }
 
