@@ -15,17 +15,17 @@ const Navigation: React.FC<Props> = ({ className }) => {
     <nav className={navClass}>
       <ul>
         <li>
-          <Link href={`/`}>
+          <Link href={`/`} as={`/`}>
             <a>{t("home")}</a>
           </Link>
         </li>
         <li>
-          <Link href={`/${locale}/articles`}>
+          <Link href={`/[lang]/articles`} as={`/${locale}/articles`}>
             <a>{t("articles")}</a>
           </Link>
         </li>
         <li>
-          <Link href={`/about`}>
+          <Link href={`/about`} as={`/about`}>
             <a>{t("about")}</a>
           </Link>
         </li>

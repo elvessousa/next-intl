@@ -41,7 +41,7 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
         <h1>Articles</h1>
         {pagedPosts.map((post) => (
           <article key={post.id} className="post">
-            <Link href={`post/${post.id}`}>
+            <Link href={`/[lang]/post/[id]`} as={`/${locale}/post/${post.id}`}>
               <a>
                 <h3>{post.title}</h3>
               </a>
