@@ -4,6 +4,7 @@ title: "Article in English"
 slug: article
 date: "2020-07-12"
 category: post
+description: "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks."
 ---
 
 ### I'm serious as a heart attack

@@ -11,6 +11,7 @@ interface Props {
     date: string;
     title: string;
     lang: string;
+    description: string;
     id: any;
   }[];
 }
@@ -48,7 +49,7 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
             <time>
               {new Date(post.date).toLocaleDateString(locale, dateOptions)}
             </time>
-            {/*<p>{post.excerpt}</p>*/}
+            {post.description && <p>{post.description}</p>}
           </article>
         ))}
 
@@ -58,6 +59,7 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
               <button
                 key={`pagination-number${i + 1}`}
                 onClick={() => setCurrentPage(i + 1)}
+                className={currentPage === i + 1 ? "active" : ""}
               >
                 {i + 1}
               </button>
