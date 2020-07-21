@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+
 /* Basics */
 body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
-  font-size: 14pt;
+  font-size: 18px;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -22,7 +25,12 @@ main {
 
 h1 {
   font-size: 4em;
+  font-weight: 900;
   text-align: center;
+}
+
+h2 {
+  font-weight: 900;
 }
 
 a {
@@ -144,6 +152,7 @@ a {
 }
 
 .post h3 {
+  font-weight: 900;
   margin: 0;
 }
 
