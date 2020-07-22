@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
 
 import Header from "../Header";
 import Footer from "../Footer";
+import { LanguageContext } from "../../intl/LanguageProvider";
 
 interface Props {
   className?: string;
@@ -11,10 +12,12 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ className, children, title }) => {
+  const [locale] = useContext(LanguageContext);
+
   return (
     <main className={className}>
       <Helmet>
-        <html lang="pt" />
+        <html lang={locale} />
         <meta charSet="utf-8" />
         <title>{title}</title>
         <meta name="description" content="A Next.js multilingual site" />
