@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { NextPage, GetStaticProps, GetStaticPaths } from "next";
-import { getSortedPostData } from "../../lib/posts";
+import Link from "next/link";
 
 import Layout from "../../components/Layout";
-import Link from "next/link";
+import { getSortedPostData } from "../../lib/posts";
+import useTranslation from "../../intl/useTranslation";
 
 interface Props {
   locale: string;
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const Post: NextPage<Props> = ({ locale, allPostsData }) => {
+  const { t } = useTranslation();
   const postsData = allPostsData.filter((post) => post.lang === locale);
 
   // Pagination
@@ -36,9 +38,9 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
   };
 
   return (
-    <Layout className="posts" title="Post">
+    <Layout className="posts" title={t("articles")}>
       <section className="page-content">
-        <h1>Articles</h1>
+        <h1>{t("articles")}</h1>
         {pagedPosts.map((post) => (
           <article key={post.id} className="post">
             <Link href={`/[lang]/post/[id]`} as={`/${locale}/post/${post.id}`}>

@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title="home" className="home">
+    <Layout title={t("home")} className="home">
       <section className="hero">
         <div className="message">
           <h1>Next INTL</h1>

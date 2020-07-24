@@ -7,7 +7,7 @@ const About: NextPage = () => {
   const { t, locale } = useTranslation();
 
   return (
-    <Layout className="about" title="About">
+    <Layout title={t("about")} className="about">
       <section className="page-content">
         <h1>{t("about")}</h1>
         <div className="page-text">
