@@ -1,30 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+    <img alt="Logo" title="Logo" src="public/svg/logo.svg" width="150px" style="display: block; margin: auto" />
+    <h1 align="center" style="margin: 0;">
+        <span style="display: block;">
+        Next INTL
+        </span>
+    </h1>
+</p>
 
-## Getting Started
+<p align="center">
+    <img src="https://img.shields.io/github/languages/count/elvessousa/next-intl"> 
+<img src="https://img.shields.io/github/repo-size/elvessousa/next-intl">
+</p>
 
-First, run the development server:
+## About
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+![Screenshot](.github/screenshot.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Site made to showcase the creation of a bilingual website using Next.js. The tutorial is in an article on my blog. Feel free to view
+the source code, fork it, or even use it in your projects.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+---
 
-## Learn More
+## Packages used
 
-To learn more about Next.js, take a look at the following resources:
+This project was developed using the packages below:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- gray-matter
+- remark
+- remark-html
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+These are for parsing markdown as HTML.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## How to contribute
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Fork this repo
+- Create a branch with your feature: `git checkout -b my-feature`;
+- Commit your modifications: `git commit -m 'feat: My new feature'`;
+- Push it to your branch: `git push origin my-feature`.
