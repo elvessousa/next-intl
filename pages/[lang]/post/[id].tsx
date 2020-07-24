@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Post: NextPage<Props> = ({ postData, locale }) => {
-  const { lang, title, slug, date, category, contentHtml } = postData;
+  const { title, contentHtml } = postData;
 
   return (
     <Layout title={title}>
