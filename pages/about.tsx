@@ -1,17 +1,19 @@
-import { NextPage } from "next";
+import { NextPage } from 'next';
 
-import Layout from "../components/Layout";
-import useTranslation from "../intl/useTranslation";
+import Layout from '../components/Layout';
+import useTranslation from '../intl/useTranslation';
 
 const About: NextPage = () => {
   const { t, locale } = useTranslation();
+  const tutorialSlug =
+    locale == 'pt' ? '/post/next-multilingue' : 'en/post/next-intl/';
 
   return (
-    <Layout title={t("about")} className="about">
+    <Layout title={t('about')} className="about">
       <section className="page-content">
-        <h1>{t("about")}</h1>
+        <h1>{t('about')}</h1>
         <div className="page-text">
-          {locale === "pt" ? (
+          {locale === 'pt' ? (
             <p>
               Site feito para mostrar a criação de um site bilíngue utilizando o
               Next.js. O tutorial está em um artigo do meu blog. Fique a vontade
@@ -40,7 +42,7 @@ const About: NextPage = () => {
               </li>
               <li>
                 <a
-                  href={`https://blog.elvessousa.com.br`}
+                  href={`https://blog.elvessousa.com.br/${tutorialSlug}`}
                   rel="noopener noreferrer"
                   target="_blank"
                 >

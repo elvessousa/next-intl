@@ -1,7 +1,7 @@
-import { GetStaticProps, GetStaticPaths, NextPage } from "next";
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 
-import { getAllPostIds, getPostData } from "../../../lib/posts";
-import Layout from "../../../components/Layout";
+import { getAllPostIds, getPostData } from '../../../lib/posts';
+import Layout from '../../../components/Layout';
 
 interface Props {
   locale: string;
@@ -15,7 +15,7 @@ interface Props {
   };
 }
 
-const Post: NextPage<Props> = ({ postData, locale }) => {
+const Post: NextPage<Props> = ({ postData }) => {
   const { title, contentHtml } = postData;
 
   return (
@@ -36,14 +36,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      locale: params?.lang || "pt",
+      locale: params?.lang || 'pt',
       postData,
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getAllPostIds();
+  const paths = getAllPostIds();
 
   return {
     paths,
