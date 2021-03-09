@@ -1,22 +1,23 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 
-import { getAllIds, getContentData } from '../../../lib/files';
-import Layout from '../../../components/Layout';
+import { getAllIds, getContentData } from '../../lib/files';
+import Layout from '../../components/Layout';
 
-interface Props {
+interface PageProps {
   locale: string;
-  postData: {
+  pageData: {
     lang: string;
     title: string;
     slug: string;
     date: string;
-    category: string;
+    category?: string;
     contentHtml: string;
   };
 }
 
-const Post: NextPage<Props> = ({ postData }) => {
-  const { title, contentHtml } = postData;
+const Post: NextPage<PageProps> = ({ pageData }) => {
+  const { title, contentHtml } = pageData;
+  console.log(pageData);
 
   return (
     <Layout title={title}>
@@ -32,18 +33,20 @@ const Post: NextPage<Props> = ({ postData }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getContentData(`/${params.lang}/${params.id}`);
+  const pageData = await getContentData(`/${params.lang}/${params.id}`, 'page');
+  console.log(pageData);
 
   return {
     props: {
       locale: params?.lang || 'pt',
-      postData,
+      pageData,
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllIds();
+  const paths = getAllIds('page');
+  console.log(paths);
 
   return {
     paths,
