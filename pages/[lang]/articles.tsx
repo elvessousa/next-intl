@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { NextPage, GetStaticProps, GetStaticPaths } from "next";
-import Link from "next/link";
+import { useState } from 'react';
+import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
+import Link from 'next/link';
 
-import Layout from "../../components/Layout";
-import { getSortedPostData } from "../../lib/posts";
-import useTranslation from "../../intl/useTranslation";
+import Layout from '../../components/Layout';
+import { getSortedPostData } from '../../lib/files';
+import useTranslation from '../../intl/useTranslation';
 
 interface Props {
   locale: string;
@@ -32,15 +32,15 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
 
   // Date localization options
   const dateOptions = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   };
 
   return (
-    <Layout className="posts" title={t("articles")}>
+    <Layout className="posts" title={t('articles')}>
       <section className="page-content">
-        <h1>{t("articles")}</h1>
+        <h1>{t('articles')}</h1>
         {pagedPosts.map((post) => (
           <article key={post.id} className="post">
             <Link href={`/[lang]/post/[id]`} as={`/${locale}/post/${post.id}`}>
@@ -61,7 +61,7 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
               <button
                 key={`pagination-number${i + 1}`}
                 onClick={() => setCurrentPage(i + 1)}
-                className={currentPage === i + 1 ? "active" : ""}
+                className={currentPage === i + 1 ? 'active' : ''}
               >
                 {i + 1}
               </button>
@@ -78,7 +78,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
-      locale: ctx.params?.lang || "pt",
+      locale: ctx.params?.lang || 'pt',
       allPostsData,
     },
   };
@@ -86,7 +86,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [{ params: { lang: "en" } }, { params: { lang: "pt" } }],
+    paths: [{ params: { lang: 'en' } }, { params: { lang: 'pt' } }],
     fallback: false,
   };
 };
