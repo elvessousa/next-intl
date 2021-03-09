@@ -20,7 +20,7 @@ const Navigation: React.FC<Props> = ({ className }) => {
           </Link>
         </li>
         <li>
-          <Link href={`/${locale}/articles`}>
+          <Link href={`/${locale}/posts`}>
             <a>{t('articles')}</a>
           </Link>
         </li>
