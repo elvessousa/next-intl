@@ -77,8 +77,6 @@ export async function getContentData(id: string, type = 'post') {
 
   const contentHtml = processedContent.toString();
 
-  console.log(frontMatter);
-
   return {
     id,
     ...(frontMatter.data as { date: string; title: string }),

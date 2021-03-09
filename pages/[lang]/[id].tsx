@@ -17,7 +17,6 @@ interface PageProps {
 
 const Post: NextPage<PageProps> = ({ pageData }) => {
   const { title, contentHtml } = pageData;
-  console.log(pageData);
 
   return (
     <Layout title={title}>
@@ -34,7 +33,6 @@ const Post: NextPage<PageProps> = ({ pageData }) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const pageData = await getContentData(`/${params.lang}/${params.id}`, 'page');
-  console.log(pageData);
 
   return {
     props: {
@@ -46,7 +44,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllIds('page');
-  console.log(paths);
 
   return {
     paths,
