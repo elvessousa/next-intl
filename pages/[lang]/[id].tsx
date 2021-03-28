@@ -15,7 +15,7 @@ interface PageProps {
   };
 }
 
-const Post: NextPage<PageProps> = ({ pageData }) => {
+const SitePage: NextPage<PageProps> = ({ pageData }) => {
   const { title, contentHtml } = pageData;
 
   return (
@@ -51,4 +51,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export default Post;
+export default SitePage;
