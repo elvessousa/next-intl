@@ -30,13 +30,6 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
     currentPage * postsPerPage
   );
 
-  // Date localization options
-  const dateOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  };
-
   return (
     <Layout className="posts" title={t('articles')}>
       <section className="page-content">
@@ -49,7 +42,11 @@ const Post: NextPage<Props> = ({ locale, allPostsData }) => {
               </a>
             </Link>
             <time>
-              {new Date(post.date).toLocaleDateString(locale, dateOptions)}
+              {new Date(post.date).toLocaleDateString(locale, {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
             </time>
             {post.description && <p>{post.description}</p>}
           </article>
