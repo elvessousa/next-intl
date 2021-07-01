@@ -1,0 +1,251 @@
+/* Basics */
+::root {
+  scrollbar-width: thin;
+  scrollbar-color: black transparent;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar,
+.content::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track,
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb,
+.content::-webkit-scrollbar-thumb {
+  background-color: #000;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3em auto 4em;
+  grid-template-areas:
+    'h h'
+    'm m'
+    'f f';
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: 900;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 900;
+}
+
+a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Header */
+.header {
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  grid-area: h;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+.logo img {
+  margin-left: 0.5em;
+  margin-top: 0.25em;
+  width: 2.5em;
+}
+
+/* Navigation */
+.navigation {
+  text-align: center;
+}
+
+.navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  display: inline-block;
+}
+
+.navigation a {
+  display: block;
+  padding: 0.5em 1em;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.lang {
+  margin-left: auto;
+  padding: 0.5em;
+}
+
+.lang a,
+.lang button {
+  background: transparent;
+  border: 0;
+  color: hsla(200, 0%, 0%, 0.7);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 0.5em;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.lang a:hover,
+.lang button:hover {
+  color: #000;
+}
+
+/* Hero */
+.hero {
+  align-items: center;
+  background: #000 url(/img/splash.jpg) no-repeat center fixed;
+  color: #fff;
+  display: flex;
+  grid-area: m;
+  height: calc(100vh - 7em);
+  justify-content: center;
+}
+
+.button {
+  background-color: #fff;
+  border-radius: 0.3em;
+  display: inline-block;
+  margin: 2em;
+  padding: 0.5em 2em;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.message {
+  text-align: center;
+  width: auto;
+}
+
+.message h1 {
+  font-size: 5em;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Articles */
+.articles {
+  grid-area: m;
+  margin-bottom: 3em;
+}
+
+.post {
+  margin: 1em auto 2em;
+  width: min(30em, 90vw);
+}
+
+.post h3 {
+  font-weight: 900;
+  margin: 0;
+}
+
+.post time {
+  font-size: 0.8em;
+  opacity: 0.5;
+}
+
+.post p {
+  font-size: 0.9em;
+}
+
+/* Post page */
+.post-content,
+.page-content {
+  grid-area: m;
+}
+
+.page-text,
+.post-text {
+  margin: 1em auto 2em;
+  width: min(30em, 90vw);
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+}
+
+.pagination a,
+.pagination button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+/* Footer */
+.footer {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+  grid-area: f;
+  justify-content: center;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0 0 2em;
+  opacity: 0.7;
+}
+
+@media screen and (min-width: 15em) and (max-width: 47em) {
+  .header .navigation {
+    display: none;
+  }
+
+  .footer {
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    bottom: 0;
+    left: 0;
+    padding: 1em;
+    position: fixed;
+    right: 0;
+  }
+
+  .footer p {
+    margin: 0;
+  }
+}
