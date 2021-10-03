@@ -13,7 +13,6 @@ export function ActiveLink({
   ...rest
 }: ActiveLinkProps) {
   const { asPath } = useRouter();
-  console.log(children);
   const newClassName = `${children.props.className} ${activeClassName}`;
   const className = asPath === rest.href ? newClassName : '';
 
