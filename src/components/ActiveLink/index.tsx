@@ -13,8 +13,9 @@ export function ActiveLink({
   ...rest
 }: ActiveLinkProps) {
   const { asPath } = useRouter();
-  const newClassName = `${children.props.className} ${activeClassName}`;
-  const className = asPath === rest.href ? newClassName : '';
+  const childClassName = children.props.className ?? '';
+  const newClassName = `${childClassName} ${activeClassName ?? ''}`;
+  const className = asPath === rest.href ? newClassName.trim() : '';
 
   return <Link {...rest}>{cloneElement(children, { className })}</Link>;
 }
