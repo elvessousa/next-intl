@@ -160,6 +160,15 @@ a {
   margin: 0;
 }
 
+/* 404 page */
+.error-page .message {
+  grid-area: m;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 7em);
+}
+
 /* Articles */
 .articles {
   grid-area: m;
