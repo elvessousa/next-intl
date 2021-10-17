@@ -12,7 +12,7 @@ type Props = {
 export default function Header({ className, children }: Props) {
   const headerClass = className || 'header';
   const { setLocale, locales } = useTranslation();
-  const router = useRouter();
+  const { asPath, pathname, push, route } = useRouter();
 
   function handleLocaleChange(language: string) {
     if (!window) {
@@ -23,7 +23,9 @@ export default function Header({ className, children }: Props) {
     localStorage.setItem('lang', language);
     setLocale(language);
 
-    router.push(router.pathname, router.asPath.replace(regex, `/${language}`));
+    if (!route.includes('post/')) {
+      push(pathname, asPath.replace(regex, `/${language}`));
+    }
   }
 
   return (
