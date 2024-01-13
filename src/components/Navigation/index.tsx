@@ -1,5 +1,7 @@
-import useTranslation from '../../hooks/useTranslation';
-import { ActiveLink } from '../ActiveLink';
+"use client";
+
+import Link from "next/link";
+import { useTranslation } from "@/contexts/LanguageContext";
 
 type Props = {
   className?: string;
@@ -7,28 +9,21 @@ type Props = {
 
 export default function Navigation({ className }: Props) {
   const { t, locale } = useTranslation();
-  const navClass = className || 'navigation';
+  const navClass = className || "navigation";
 
   return (
     <nav className={navClass}>
       <ul>
         <li>
-          <ActiveLink href={`/`} activeClassName="active">
-            <a>{t('home')}</a>
-          </ActiveLink>
+          <Link href={`/`}>{t("home")}</Link>
         </li>
         <li>
-          <ActiveLink href={`/${locale}/posts`} activeClassName="active">
-            <a>{t('articles')}</a>
-          </ActiveLink>
+          <Link href={`/${locale}/posts`}>{t("articles")}</Link>
         </li>
         <li>
-          <ActiveLink
-            href={`/${locale}/${t('about').toLowerCase()}`}
-            activeClassName="active"
-          >
-            <a>{t('about')}</a>
-          </ActiveLink>
+          <Link href={`/${locale}/${t("about").toLowerCase()}`}>
+            {t("about")}
+          </Link>
         </li>
       </ul>
     </nav>

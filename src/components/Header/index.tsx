@@ -1,31 +1,39 @@
-import { useRouter } from 'next/router';
+"use client";
 
-import Navigation from '../Navigation';
-import Logo from '../Logo';
-import useTranslation from '../../hooks/useTranslation';
+import Logo from "../Logo";
+import Navigation from "../Navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { useTranslation } from "@/contexts/LanguageContext";
 
 type Props = {
   className?: string;
   children?: React.ReactNode;
 };
 
-export default function Header({ className, children }: Props) {
-  const headerClass = className || 'header';
-  const { setLocale, locales } = useTranslation();
-  const { asPath, pathname, push, route } = useRouter();
+export function Header({ className, children }: Props) {
+  const { setLocale } = useTranslation();
+  const route = useRouter();
+  const pathname = usePathname();
+  const params = useParams();
+  const headerClass = className || "header";
+  const locales = ["en", "pt"];
+
+  console.log("params", params);
+  // console.log("route", route);
+  console.log("path", pathname);
 
   function handleLocaleChange(language: string) {
     if (!window) {
       return;
     }
 
-    const regex = new RegExp(`^/(${locales.join('|')})`);
-    localStorage.setItem('lang', language);
+    // const regex = new RegExp(`^/(${locales.join("|")})`);
+    localStorage.setItem("lang", language);
     setLocale(language);
 
-    if (!route.includes('post/')) {
-      push(pathname, asPath.replace(regex, `/${language}`));
-    }
+    // if (!pathname.includes("post/")) {
+    //   route.push(pathname, h.replace(regex, `/${language}`));
+    // }
   }
 
   return (
